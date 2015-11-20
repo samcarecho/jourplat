@@ -1,0 +1,121 @@
+
+@media screen {
+  body {
+    font-family: georgia, "times new roman", times, serif;
+    color: #333;
+    background-color:#000;
+  }
+  p, ul, ol, dl, dd { margin: 0 0 1em 0;}
+
+  [firstLetter]:first-letter{
+    float: left;
+    font-size: 76px;
+    line-height: 76px;
+    margin: 0 15px 5px 0;
+  }
+
+  article-section[text] p {
+    font-size: 15px;
+    line-height: 22px;
+    padding-right: 50px;
+    margin-right: 348px;
+  }
+}
+
+nav ul {
+  margin: 0;
+}
+nav li {
+  float: left;
+  margin: 0 20px 0 0;
+  padding: 3px;
+  list-style: none;
+  color: #333;
+  cursor: pointer;
+}
+nav li[active], nav li:hover {
+  background: #E2E2E2;
+  border-radius: 10px;
+}
+/*
+::-webkit-scrollbar {
+    height: 16px;
+    overflow: visible;
+    width: 16px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .2);
+    background-clip: padding-box;
+    border: solid transparent;
+    border-width: 1px 1px 1px 6px;
+    min-height: 28px;
+    padding: 100px 0 0;
+    box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .1), inset 0 -1px 0 rgba(0, 0, 0, .07);
+}
+::-webkit-scrollbar-button {
+    height: 0;
+    width: 0;
+}
+::-webkit-scrollbar-track {
+    background-clip: padding-box;
+    border: solid transparent;
+    border-width: 0 0 0 4px;
+}
+::-webkit-scrollbar-corner {
+    background: transparent;
+}*/
+
+/* background for toolbar when it is at its full size */
+core-scroll-header-panel::shadow #headerBg {
+  background-color: #fbfbfb;
+}
+
+/* background for toolbar when it is condensed */
+core-scroll-header-panel::shadow #condensedHeaderBg {
+  background-color: #f4b400;
+}
+
+core-toolbar {
+  color: #f1f1f1;
+  fill: #f1f1f1;
+  background-color: transparent;
+}
+
+core-toolbar .title {
+  position: relative;
+  top: -3px;
+  font-size: 36px;
+  color: #c7c7c7;
+
+}
+
+core-scroll-header-panel[parallax]::shadow #mainContainer{
+  height: 500px; /* fallback for older browsers */
+  height: 100vh;
+  top: 0 !important;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-perspective: 300px;
+  perspective: 300px;
+}
+
+[sectionTitle], [sectionDescription] {
+  display: none;
+}
+
+@media only screen and (min-width: 1200px) {
+
+  article-section[text] p {
+    font-size: 15px;
+    line-height: 22px;
+    padding-right: 50px;
+    margin-right: 348px;
+  }
+}
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}

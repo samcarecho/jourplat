@@ -1,0 +1,170 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-animation/core-animation.html">
+<!--
+Element providing solution to no problem in particular.
+
+
+##### Example
+
+    <marked-it></marked-it>
+
+@element about-box
+@simple title and description box.
+@status alpha
+-->
+<polymer-element name="article-section" attributes="notitle">
+
+  <template>
+
+    <link rel="stylesheet" href="article-section.css" />
+
+    <div id="ct" class="hide {{ showTitle }}">
+      <content select="[sectionTitle]"></content>
+      <content select="[sectionDescription]"></content>
+      <div id="ctd" class="{{ author? 'show-block': 'hide'}} {{showTitle}}"></div>
+      <div id="cta" class="{{ author? 'show-block': 'hide' }} {{showTitle}}">By {{ author | toUpperCase}}</div>
+    </div>
+    <div id="cbox" class>
+      <content></content>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+      publish: {
+
+        /**
+         * article-section types: The types of the article-section. This will define layout and behaviours.
+         * available types:
+         * videoHero
+         * imgHero
+         * video
+         * text
+         * widget
+         */
+        /**
+         * If true, the article-section is a Video Hero Area.
+         *
+         * @attribute videoHero
+         * @type boolean
+         * @default false
+         */
+        videoHero: false,
+        imgHero: false,
+        video: false,
+        /**
+         * If true, the article-section is a text container.
+         *
+         * @attribute text
+         * @type boolean
+         * @default false
+         */
+        text: false,
+        widget: false,
+
+        /**
+         * article-section title types: The title types for the article-section. This will define layout
+         * and behaviours of the title.
+         * title types:
+         * titleFloat,
+         * titleTop,
+         * titleBottom
+         */
+        /**
+         * If not null, the article-section title will be formatted accordingly to a given value.
+         * Possible values: floatDark, floatLight, topDark, topLight
+         *
+         * @attribute showTitle
+         * @type string
+         * @default null
+         */
+        showTitle: null,
+        showBlock: false,
+
+        /**
+         * misc properties
+         */
+        author: null,
+
+        parallaxGroup: false,
+        parallaxIndex: 0
+      },
+      observe: {
+        'model.value':'modelValueChanged'
+      },
+      ready: function() {
+
+      },
+      domReady: function() {
+
+        console.log(this.hasAttribute('showTitle'));
+        if (this.hasAttribute('showTitle')) {
+          this.$.ct.classList.remove('hide');
+          this.$.ct.classList.add('show-block');
+        }
+
+        //console.log(this.parallaxGroup);
+        //console.log(this.parallaxIndex);
+
+        if (this.parallaxGroup){
+          this.style.zIndex = this.parallaxIndex;
+        }
+        if (this.videoHero && this.parallaxGroup){
+          //this.$.cbox.classList.add("parallaxLayer", "parallaxLayerBase");
+          //this.$.ct.classList.add("parallaxLayer", "parallaxLayerFore");
+          //this.classList.add("fixed");
+        }
+        if (this.text && this.parallaxGroup){
+          //this.$.cbox.classList.add("parallaxLayer", "parallaxLayerBase");
+        }
+
+
+      },
+      toUpperCase: function(value) {
+        if (value !== null){
+          return value.toUpperCase();
+        }
+      }
+      /*videoHeroChanged: function(){
+       if (this.videoHero == true){
+       this.classList.add('video-hero');
+       this._videoHero = 1
+       }
+       if (this._videoHero == 1 && this.videoHero == false) {
+       this.classList.remove('video-hero');
+       this._videoHero = 0;
+       }
+       },*/
+      /*titleFloatChanged: function(){
+       if (this.titleFloat !== null){
+       console.log('titleFloat is set to: ' + this.titleFloat);
+       if (this.titleFloat == 'light'){
+       this.$.ct.className = "";
+       this.$.ct.classList.add('title-box-light');
+       this._titleFloat = 1;
+       if (this.author !== null){
+       this.$.ctd.style.display = 'block';
+       this.$.cta.innerHTML = 'By <span>' + this.author + '</span>';
+       }
+       }
+       if (this.titleFloat == 'dark'){
+       this.$.ct.className = "";
+       this.$.ct.classList.add('title-box-dark');
+       this._titleFloat = 1;
+       if (this.author !== null){
+       this.$.ctd.style.display = 'block';
+       this.$.cta.innerHTML = 'By <span>' + this.author + '</span>';
+       }
+       }
+
+       }
+       if (this._titleFloat == 1 && this.titleFloat == null) {
+       console.log('titleFloat is set to: ' + this.titleFloat);
+       this._titleFloat = 0;
+       }
+       }*/
+    });
+  </script>
+
+</polymer-element>

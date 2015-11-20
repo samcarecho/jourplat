@@ -1,0 +1,7 @@
+:host {
+  display: block;
+  width: {{width}};
+  background-color: #000;
+  overflow: hidden;
+}
+

@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>JourPlat</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=no">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild-->
+
+  <!-- build:js bower_components/webcomponentsjs/webcomponents.min.js -->
+  <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+  <!-- endbuild -->
+
+  <!-- build:vulcanized elements/elements.vulcanized.html -->
+  <link rel="import" href="elements/elements.html">
+  <link rel="import" href="bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
+  <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+  <!-- endbuild-->
+
+  <link href='http://fonts.googleapis.com/css?family=News+Cycle' rel='stylesheet' type='text/css'>
+</head>
+
+<body fullbleed layout vertical >
+<core-scroll-header-panel fixed flex style="background-color: #fbfbfb">
+  <core-toolbar>
+    <div class="title">Shamam</div>
+    <div id="main-menu" flex>
+      <nav>
+        <ul>
+          <li active>Article 1</li>
+          <li>Article 2</li>
+          <li>Article 3</li>
+        </ul>
+      </nav>
+    </div>
+    <div flex></div>
+    <core-icon-button icon="more-vert"></core-icon-button>
+  </core-toolbar>
+  <article-section videoHero showTitle="floatLight" author="Sam Carecho" style="background-color: #000;">
+    <div sectionTitle class>Shaman</div>
+    <div sectionDescription class>This is a videoHero Demo</div>
+    <video-background id="vbg" width="100%" videoSrc="media/shaman.mp4"></video-background>
+  </article-section>
+  <article-section class="text" text author="Sam Carecho">
+    <p firstLetter>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sollicitudin sagittis dapibus. Proin non placerat massa. Maecenas dictum nisi in quam egestas venenatis. Nulla tristique eget eros nec ornare. Proin sodales, libero id faucibus porttitor, tortor est pharetra risus, nec sollicitudin enim est sed metus. Nunc laoreet tempus neque. Curabitur purus lacus, convallis scelerisque pellentesque et, sagittis sit amet libero. Etiam convallis tempus justo in auctor.</p>
+    <p>Ut mattis suscipit lorem ultricies elementum. Donec efficitur urna neque, nec blandit nulla consequat condimentum. Donec laoreet arcu in pulvinar fringilla. Etiam vehicula rhoncus augue, lobortis varius dolor tincidunt nec.</p>
+    <p>Curabitur nec posuere nisi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum quis nibh at arcu pulvinar congue id vitae est. Aenean ornare sit amet lectus at venenatis. Duis ac porta neque. Sed pulvinar bibendum suscipit. Curabitur consequat augue ac odio eleifend hendrerit. </p>
+    <p>Pellentesque varius nunc quis mi fringilla placerat a et sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce efficitur turpis id lorem convallis, elementum mollis justo facilisis. Nam consequat sapien quis dui ullamcorper pulvinar. Vivamus consequat hendrerit ullamcorper. Morbi vehicula nisi et pulvinar sagittis.</p>
+    <p>Curabitur ex erat, mattis quis metus eu, consectetur fringilla eros. Vestibulum tincidunt est tristique risus pharetra mollis. Nam scelerisque ullamcorper dolor eu malesuada. Nam tortor nunc, efficitur eget tellus in, maximus porttitor nunc. Nullam auctor, risus eget dapibus tempus, neque odio facilisis enim, id euismod nulla lacus eget quam.</p>
+  </article-section>
+  <article-section text showTitle="topDark">
+    <div sectionTitle class>Dignissim Condimentum</div>
+    <p firstLetter>Nullam pulvinar nisi id purus auctor, eu dignissim mauris condimentum. Curabitur tempus ligula vel nibh bibendum tempus. Aliquam gravida, eros vitae fringilla sagittis, sapien nisl elementum lectus, vitae porta lorem ipsum quis metus. Aliquam neque ante, fermentum sed mauris et, placerat efficitur risus.</p>
+    <p>Integer rhoncus eros felis, vitae fermentum lorem lobortis lobortis. Donec fermentum metus id est feugiat varius. Cras at ultrices diam, ut egestas mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+    <p>Curabitur velit nisi, tristique a vehicula vel, accumsan eget enim. Duis eget faucibus est, non vulputate quam. Pellentesque faucibus, ligula id elementum fermentum, nisl sapien luctus nunc, sed placerat ligula erat sed sem. </p>
+    <p>Quisque egestas metus et ex porttitor varius. Maecenas nibh nulla, commodo non mauris eget, aliquam pellentesque augue. In vitae congue lorem. Mauris laoreet magna sed mi suscipit suscipit. Morbi mollis, ligula in blandit interdum, turpis augue sollicitudin lacus, vel dignissim libero libero placerat eros. Pellentesque laoreet tempus ligula, vitae pretium elit mollis eu. Aenean tempus mattis turpis vel gravida. Donec lacus nisi, venenatis eget quam ut, sodales consectetur lorem. Nulla vehicula imperdiet feugiat.</p>
+  </article-section>
+</core-scroll-header-panel>
+
+
+<script>
+  var vid = document.querySelector('#vbg');
+  var about = document.querySelector('#abx');
+  vid.addEventListener('ended', function (e) {
+    about.show = true;
+    vid.removeEventListener('ended');
+  }, false);
+
+  var titleStyle = document.querySelector('.title').style;
+  addEventListener('core-header-transform', function(e) {
+    var d = e.detail;
+    var m = d.height - d.condensedHeight;
+    var scale = Math.max(0.75, (m - d.y) / (m / 0.25)  + 0.75);
+    titleStyle.transform = titleStyle.webkitTransform =
+      'scale(' + scale + ') translateZ(0)';
+  });
+</script>
+
+</body>
+
+</html>

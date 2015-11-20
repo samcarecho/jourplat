@@ -1,0 +1,41 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<!--
+##### Usage:
+
+    <video-background></video-background>
+
+@element video-background
+@simple video background.
+@status alpha
+-->
+<polymer-element name="video-background" attributes="notitle author width loop videoSrc">
+
+  <template>
+
+    <link rel="stylesheet" href="video-background.css" />
+
+    <video id="video" width="{{width}}" autoplay="autoplay" loop>
+      <source src="{{videoSrc}}"
+              type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+    </video>
+    <content></content>
+
+  </template>
+
+  <script>
+    Polymer({
+      author: 'Sam Carecho',
+
+      ready: function() {
+        this.ended = false;
+        var vid = this.$.video;
+        vid.addEventListener('ended', function (e) {
+          this.ended = vid.ended;
+          vid.removeEventListener('ended');
+        }, false);
+
+      }
+    });
+  </script>
+
+</polymer-element>
