@@ -15,6 +15,75 @@
           font-size: 24px!important;
         }
       }
+
+      paper-scroll-header-panel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+      /* scroller of the panel */
+      --paper-scroll-header-container: {
+         /*font: 200% / 1.5 Arial;*/
+
+         display: -ms-flexbox;
+         display: -webkit-flex;
+         display: flex;
+         margin: 0;
+         padding: 0;
+
+         /* Every CSS properties that flatten perspective
+          * (such as -webkit-overflow-scrolling: touch;) *must* be avoided
+          * for the scroller, as it breaks the perspective.
+          */
+         -webkit-overflow-scrolling: auto;
+
+         /* for vertical scrolling */
+         -webkit-flex-direction: column;
+         flex-direction: column;
+         overflow-y: auto;
+         overflow-x: hidden;
+
+         /* FYI, this should be applied for horizontal scrolling, instead of the 4 preceiding lines */
+         /*
+         overflow-y: hidden;
+         overflow-x: auto;
+         */
+       };
+      }
+
+      video {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -100;
+        background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+        background-size: cover;
+        transition: 1s opacity;
+      }
+
+      parallax-layers {
+        min-height: 800px;
+        z-index: -1;
+      }
+
+      parallax-layers > .parallax-layer {
+        background-color: #000;
+        background-size: cover;
+        color: white;
+      }
+
+      div.no-parallax {
+        min-height: 500px;
+        z-index: 0;
+        background: white;
+        border: 0px;
+      }
     </style>
   </template>
 </dom-module>
