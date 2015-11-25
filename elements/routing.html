@@ -45,7 +45,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       app.route = 'secao-1';
     });
 
-    page('/secao-2', function() {
+    page(app.baseUrl + 'secao-2', function() {
       app.route = 'secao-2';
     });
 
@@ -54,7 +54,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       app.params = data.params;
     });*/
 
-    page('/creditos', function() {
+    page(app.baseUrl + 'creditos', function() {
       app.route = 'creditos';
     });
 
