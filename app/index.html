@@ -16,7 +16,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="Polymer Starter Kit" />
-  <title>Polymer Starter Kit</title>
+  <title>Shaman Demo</title>
   <!-- Place favicon.ico in the `app/` directory -->
 
   <!-- Chrome for Android theme color -->
@@ -69,25 +69,35 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <!-- Drawer Toolbar -->
         <paper-toolbar id="drawerToolbar">
-          <span class="paper-font-title">Menu</span>
+          <span class="paper-font-title">Shaman</span>
         </paper-toolbar>
 
         <!-- Drawer Content -->
         <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
-          <a data-route="home" href="{{baseUrl}}">
-            <iron-icon icon="home"></iron-icon>
-            <span>Home</span>
+          <a data-route="secao-1" href="{{baseUrl}}">
+            <iron-icon icon="bookmark-border"></iron-icon>
+            <span>Seção 1</span>
           </a>
 
-          <a data-route="users" href="users">
+          <a data-route="secao-2" href="secao-2">
+            <iron-icon icon="bookmark-border"></iron-icon>
+            <span>Seção 2</span>
+          </a>
+
+          <a data-route="creditos" href="creditos">
             <iron-icon icon="info"></iron-icon>
-            <span>Users</span>
+            <span>Créditos</span>
           </a>
 
-          <a data-route="contact" href="contact">
-            <iron-icon icon="mail"></iron-icon>
-            <span>Contact</span>
-          </a>
+          <hr />
+
+          <google-signin class="center"
+                         label-signin="Manage w/ Google"
+                         theme="light"
+                         raised offline
+                         client-id="72345921162-steaavqqp2qvu7kppj619q22kfp0uifr.apps.googleusercontent.com"
+                         scopes="profile email">
+          </google-signin>
         </paper-menu>
       </paper-scroll-header-panel>
 
@@ -99,7 +109,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
           <span class="title">Shaman</span>
 
-          <!-- Toolbar icons -->
+          <paper-button raised class="top-nav">
+            <a data-route="secao-1" href="{{baseUrl}}" class="top-nav">
+              <iron-icon icon="bookmark-border"></iron-icon>
+              <span>Seção 1</span>
+            </a>
+          </paper-button>
+          <paper-button raised class="top-nav">
+            <a data-route="secao-2" href="secao-2" class="top-nav">
+              <iron-icon icon="bookmark-border"></iron-icon>
+              <span>Seção 2</span>
+            </a>
+          </paper-button>
+          <paper-button raised class="top-nav">
+            <a data-route="creditos" href="creditos" class="top-nav">
+              <iron-icon icon="info"></iron-icon>
+              <span>Créditos</span>
+            </a>
+          </paper-button>
+          </paper-menu>
+
+          <!-- Toolbar icons
           <paper-icon-button icon="refresh"></paper-icon-button>
           <paper-icon-button icon="search"></paper-icon-button>
 
@@ -117,9 +147,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <!-- Main Content -->
         <div class="content">
-          <iron-pages attr-for-selected="data-route" selected="{{route}}">
+          <iron-pages attr-for-selected="data-route" selected="{{route}}" >
 
-            <section data-route="home">
+            <section data-route="secao-1">
 
               <parallax-element>
 
@@ -132,19 +162,54 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                   </div>
                 </parallax-layers>
 
-                <!-- <div class="no-parallax   layout vertical top-top"> -->
-                  <paper-material class="no-parallax" elevation="2">
-                    <h2 class="paper-font-headline">Page Title</h2>
-                  </paper-material>
-                <!-- </div> -->
-                <div class="no-parallax   layout vertical center-center">
-                  <paper-material elevation="1">
+                <div id="section-content" class="no-parallax layout vertical top-center">
 
-                  </paper-material>
-                </div>
-                <div class="no-parallax   layout vertical center-center">
-                  <paper-material elevation="1">
+                  <paper-material elevation="2">
+                    <h2 class="paper-font-headline">Lorem Ipsum</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempor accumsan magna sed bibendum. Pellentesque ultricies erat at mauris iaculis convallis. Maecenas eleifend consectetur ex, ut malesuada sem porta ac. Pellentesque eu ultrices quam, a commodo nisi. Etiam maximus nisi scelerisque, sodales velit et, placerat felis. In faucibus elit tincidunt, dictum nulla eget, dictum ipsum. Donec viverra turpis rhoncus quam interdum facilisis. Aliquam placerat congue scelerisque. Nunc at augue vestibulum, rhoncus elit id, commodo lectus. Suspendisse lectus est, condimentum in malesuada eget, euismod vel magna. Donec placerat, magna convallis convallis luctus, erat nunc aliquam metus, vel finibus lectus elit non neque. Suspendisse mauris elit, pretium vitae suscipit eget, gravida venenatis nunc. Duis sapien risus, rhoncus a est a, malesuada tempor arcu. Cras eu metus iaculis, aliquam mauris nec, tincidunt arcu. Vivamus id nibh ornare, fermentum odio eu, scelerisque turpis. Aliquam erat volutpat.</p>
 
+                    <google-chart
+                                  type='column'
+                                  options='{"title": "Responsive chart", "vAxis": {"minValue" : 0, "maxValue": 10}}'
+                                  cols='[{"label": "Data", "type": "string"},{"label": "Value", "type": "number"}]'
+                                  rows='[["Col1", 5.0],["Col2", 5.0],["Col3", 5.0]]'>
+                    </google-chart>
+
+                    <p>In et bibendum velit. Donec fermentum maximus ante vitae lacinia. Nunc tempus consectetur dui, ut porta augue volutpat eget. Donec eu suscipit erat. Suspendisse cursus ultrices tellus non tincidunt. Cras rutrum nisl eu lectus mollis, ac iaculis turpis viverra. Fusce at ex eu tortor accumsan aliquam eget et enim. Nullam at auctor diam, ut ultricies neque. Proin sit amet massa porta, eleifend leo sit amet, lobortis erat. Praesent justo justo, viverra id aliquam id, laoreet sed risus. Curabitur maximus molestie lorem.</p>
+
+                    <p>Suspendisse venenatis purus in sapien aliquam, vel placerat dui vestibulum. Ut elit felis, laoreet eu nunc at, tempus eleifend sapien. In molestie tincidunt rhoncus. Maecenas a lorem arcu. In consectetur urna quis neque pharetra, ac dictum sapien finibus. Phasellus dignissim iaculis lacus eu finibus. Etiam imperdiet lorem at tincidunt porta. Cras porta, felis ac ornare feugiat, justo felis pellentesque justo, quis gravida metus sapien ut nisi. Vivamus sagittis, velit eget aliquam pretium, libero ipsum pharetra leo, id tempor dolor erat ut dui. Nunc ut arcu fermentum nisl feugiat iaculis. Mauris porta eget neque vitae sollicitudin.</p>
+
+                    <google-youtube class="half-right"
+                                    video-id="PmT-djHyo3E"
+                                    rel="0"
+                                    start="5"
+                                    autoplay="0"
+                                    chromeless>
+                    </google-youtube>
+
+                    <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed aliquet eget libero in ornare. Etiam suscipit ac est vitae venenatis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut felis rutrum, bibendum quam a, sollicitudin elit. Integer vitae ultricies mauris. Duis porta augue ac eleifend rutrum. Donec quis dolor pellentesque, viverra orci a, pulvinar quam. Nulla vitae mattis erat. Vivamus feugiat placerat tellus volutpat ultricies. Nullam facilisis lectus et quam blandit, sed feugiat risus maximus. Pellentesque euismod scelerisque ante, a dictum quam lobortis id.</p>
+                  </paper-material>
+
+                  <paper-material elevation="2">
+                    <h2 class="paper-font-headline">Lorem Ipsum</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempor accumsan magna sed bibendum. Pellentesque ultricies erat at mauris iaculis convallis. Maecenas eleifend consectetur ex, ut malesuada sem porta ac. Pellentesque eu ultrices quam, a commodo nisi. Etiam maximus nisi scelerisque, sodales velit et, placerat felis. In faucibus elit tincidunt, dictum nulla eget, dictum ipsum. Donec viverra turpis rhoncus quam interdum facilisis. Aliquam placerat congue scelerisque. Nunc at augue vestibulum, rhoncus elit id, commodo lectus. Suspendisse lectus est, condimentum in malesuada eget, euismod vel magna. Donec placerat, magna convallis convallis luctus, erat nunc aliquam metus, vel finibus lectus elit non neque. Suspendisse mauris elit, pretium vitae suscipit eget, gravida venenatis nunc. Duis sapien risus, rhoncus a est a, malesuada tempor arcu. Cras eu metus iaculis, aliquam mauris nec, tincidunt arcu. Vivamus id nibh ornare, fermentum odio eu, scelerisque turpis. Aliquam erat volutpat.</p>
+
+                    <p>In et bibendum velit. Donec fermentum maximus ante vitae lacinia. Nunc tempus consectetur dui, ut porta augue volutpat eget. Donec eu suscipit erat. Suspendisse cursus ultrices tellus non tincidunt. Cras rutrum nisl eu lectus mollis, ac iaculis turpis viverra. Fusce at ex eu tortor accumsan aliquam eget et enim. Nullam at auctor diam, ut ultricies neque. Proin sit amet massa porta, eleifend leo sit amet, lobortis erat. Praesent justo justo, viverra id aliquam id, laoreet sed risus. Curabitur maximus molestie lorem.</p>
+
+                    <p>Suspendisse venenatis purus in sapien aliquam, vel placerat dui vestibulum. Ut elit felis, laoreet eu nunc at, tempus eleifend sapien. In molestie tincidunt rhoncus. Maecenas a lorem arcu. In consectetur urna quis neque pharetra, ac dictum sapien finibus. Phasellus dignissim iaculis lacus eu finibus. Etiam imperdiet lorem at tincidunt porta. Cras porta, felis ac ornare feugiat, justo felis pellentesque justo, quis gravida metus sapien ut nisi. Vivamus sagittis, velit eget aliquam pretium, libero ipsum pharetra leo, id tempor dolor erat ut dui. Nunc ut arcu fermentum nisl feugiat iaculis. Mauris porta eget neque vitae sollicitudin.</p>
+
+                    <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed aliquet eget libero in ornare. Etiam suscipit ac est vitae venenatis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut felis rutrum, bibendum quam a, sollicitudin elit. Integer vitae ultricies mauris. Duis porta augue ac eleifend rutrum. Donec quis dolor pellentesque, viverra orci a, pulvinar quam. Nulla vitae mattis erat. Vivamus feugiat placerat tellus volutpat ultricies. Nullam facilisis lectus et quam blandit, sed feugiat risus maximus. Pellentesque euismod scelerisque ante, a dictum quam lobortis id.</p>
+                  </paper-material>
+
+                  <paper-material elevation="2">
+                    <h2 class="paper-font-headline">Lorem Ipsum</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempor accumsan magna sed bibendum. Pellentesque ultricies erat at mauris iaculis convallis. Maecenas eleifend consectetur ex, ut malesuada sem porta ac. Pellentesque eu ultrices quam, a commodo nisi. Etiam maximus nisi scelerisque, sodales velit et, placerat felis. In faucibus elit tincidunt, dictum nulla eget, dictum ipsum. Donec viverra turpis rhoncus quam interdum facilisis. Aliquam placerat congue scelerisque. Nunc at augue vestibulum, rhoncus elit id, commodo lectus. Suspendisse lectus est, condimentum in malesuada eget, euismod vel magna. Donec placerat, magna convallis convallis luctus, erat nunc aliquam metus, vel finibus lectus elit non neque. Suspendisse mauris elit, pretium vitae suscipit eget, gravida venenatis nunc. Duis sapien risus, rhoncus a est a, malesuada tempor arcu. Cras eu metus iaculis, aliquam mauris nec, tincidunt arcu. Vivamus id nibh ornare, fermentum odio eu, scelerisque turpis. Aliquam erat volutpat.</p>
+
+                    <p>In et bibendum velit. Donec fermentum maximus ante vitae lacinia. Nunc tempus consectetur dui, ut porta augue volutpat eget. Donec eu suscipit erat. Suspendisse cursus ultrices tellus non tincidunt. Cras rutrum nisl eu lectus mollis, ac iaculis turpis viverra. Fusce at ex eu tortor accumsan aliquam eget et enim. Nullam at auctor diam, ut ultricies neque. Proin sit amet massa porta, eleifend leo sit amet, lobortis erat. Praesent justo justo, viverra id aliquam id, laoreet sed risus. Curabitur maximus molestie lorem.</p>
+
+                    <p>Suspendisse venenatis purus in sapien aliquam, vel placerat dui vestibulum. Ut elit felis, laoreet eu nunc at, tempus eleifend sapien. In molestie tincidunt rhoncus. Maecenas a lorem arcu. In consectetur urna quis neque pharetra, ac dictum sapien finibus. Phasellus dignissim iaculis lacus eu finibus. Etiam imperdiet lorem at tincidunt porta. Cras porta, felis ac ornare feugiat, justo felis pellentesque justo, quis gravida metus sapien ut nisi. Vivamus sagittis, velit eget aliquam pretium, libero ipsum pharetra leo, id tempor dolor erat ut dui. Nunc ut arcu fermentum nisl feugiat iaculis. Mauris porta eget neque vitae sollicitudin.</p>
+
+                    <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed aliquet eget libero in ornare. Etiam suscipit ac est vitae venenatis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut felis rutrum, bibendum quam a, sollicitudin elit. Integer vitae ultricies mauris. Duis porta augue ac eleifend rutrum. Donec quis dolor pellentesque, viverra orci a, pulvinar quam. Nulla vitae mattis erat. Vivamus feugiat placerat tellus volutpat ultricies. Nullam facilisis lectus et quam blandit, sed feugiat risus maximus. Pellentesque euismod scelerisque ante, a dictum quam lobortis id.</p>
                   </paper-material>
                 </div>
 
@@ -152,29 +217,106 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             </section>
 
-            <section data-route="users">
-              <paper-material elevation="1">
-                <h2 class="page-title">Users</h2>
-                <p>This is the users section</p>
-                <a href$="{{baseUrl}}users/Addy">Addy</a><br>
-                <a href$="{{baseUrl}}users/Rob">Rob</a><br>
-                <a href$="{{baseUrl}}users/Chuck">Chuck</a><br>
-                <a href$="{{baseUrl}}users/Sam">Sam</a>
-              </paper-material>
+            <section data-route="secao-2">
+              <div id="section-content">
+                <paper-material elevation="2">
+                  <h2 class="paper-font-headline">Seção 2</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempor accumsan magna sed bibendum. Pellentesque ultricies erat at mauris iaculis convallis. Maecenas eleifend consectetur ex, ut malesuada sem porta ac. Pellentesque eu ultrices quam, a commodo nisi. Etiam maximus nisi scelerisque, sodales velit et, placerat felis. In faucibus elit tincidunt, dictum nulla eget, dictum ipsum. Donec viverra turpis rhoncus quam interdum facilisis. Aliquam placerat congue scelerisque. Nunc at augue vestibulum, rhoncus elit id, commodo lectus. Suspendisse lectus est, condimentum in malesuada eget, euismod vel magna. Donec placerat, magna convallis convallis luctus, erat nunc aliquam metus, vel finibus lectus elit non neque. Suspendisse mauris elit, pretium vitae suscipit eget, gravida venenatis nunc. Duis sapien risus, rhoncus a est a, malesuada tempor arcu. Cras eu metus iaculis, aliquam mauris nec, tincidunt arcu. Vivamus id nibh ornare, fermentum odio eu, scelerisque turpis. Aliquam erat volutpat.</p>
+
+                  <google-youtube class="half-right"
+                                  video-id="PmT-djHyo3E"
+                                  rel="0"
+                                  start="5"
+                                  autoplay="0"
+                                  chromeless>
+                  </google-youtube>
+
+                  <p>In et bibendum velit. Donec fermentum maximus ante vitae lacinia. Nunc tempus consectetur dui, ut porta augue volutpat eget. Donec eu suscipit erat. Suspendisse cursus ultrices tellus non tincidunt. Cras rutrum nisl eu lectus mollis, ac iaculis turpis viverra. Fusce at ex eu tortor accumsan aliquam eget et enim. Nullam at auctor diam, ut ultricies neque. Proin sit amet massa porta, eleifend leo sit amet, lobortis erat. Praesent justo justo, viverra id aliquam id, laoreet sed risus. Curabitur maximus molestie lorem.</p>
+
+                  <p>Suspendisse venenatis purus in sapien aliquam, vel placerat dui vestibulum. Ut elit felis, laoreet eu nunc at, tempus eleifend sapien. In molestie tincidunt rhoncus. Maecenas a lorem arcu. In consectetur urna quis neque pharetra, ac dictum sapien finibus. Phasellus dignissim iaculis lacus eu finibus. Etiam imperdiet lorem at tincidunt porta. Cras porta, felis ac ornare feugiat, justo felis pellentesque justo, quis gravida metus sapien ut nisi. Vivamus sagittis, velit eget aliquam pretium, libero ipsum pharetra leo, id tempor dolor erat ut dui. Nunc ut arcu fermentum nisl feugiat iaculis. Mauris porta eget neque vitae sollicitudin.</p>
+
+                  <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed aliquet eget libero in ornare. Etiam suscipit ac est vitae venenatis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut felis rutrum, bibendum quam a, sollicitudin elit. Integer vitae ultricies mauris. Duis porta augue ac eleifend rutrum. Donec quis dolor pellentesque, viverra orci a, pulvinar quam. Nulla vitae mattis erat. Vivamus feugiat placerat tellus volutpat ultricies. Nullam facilisis lectus et quam blandit, sed feugiat risus maximus. Pellentesque euismod scelerisque ante, a dictum quam lobortis id.</p>
+                </paper-material>
+                <paper-material elevation="2">
+                  <h2 class="paper-font-headline">Lorem Ipsum</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempor accumsan magna sed bibendum. Pellentesque ultricies erat at mauris iaculis convallis. Maecenas eleifend consectetur ex, ut malesuada sem porta ac. Pellentesque eu ultrices quam, a commodo nisi. Etiam maximus nisi scelerisque, sodales velit et, placerat felis. In faucibus elit tincidunt, dictum nulla eget, dictum ipsum. Donec viverra turpis rhoncus quam interdum facilisis. Aliquam placerat congue scelerisque. Nunc at augue vestibulum, rhoncus elit id, commodo lectus. Suspendisse lectus est, condimentum in malesuada eget, euismod vel magna. Donec placerat, magna convallis convallis luctus, erat nunc aliquam metus, vel finibus lectus elit non neque. Suspendisse mauris elit, pretium vitae suscipit eget, gravida venenatis nunc. Duis sapien risus, rhoncus a est a, malesuada tempor arcu. Cras eu metus iaculis, aliquam mauris nec, tincidunt arcu. Vivamus id nibh ornare, fermentum odio eu, scelerisque turpis. Aliquam erat volutpat.</p>
+
+                  <google-youtube class="half-left"
+                                  video-id="PmT-djHyo3E"
+                                  rel="0"
+                                  start="5"
+                                  autoplay="0"
+                                  chromeless>
+                  </google-youtube>
+
+                  <p>In et bibendum velit. Donec fermentum maximus ante vitae lacinia. Nunc tempus consectetur dui, ut porta augue volutpat eget. Donec eu suscipit erat. Suspendisse cursus ultrices tellus non tincidunt. Cras rutrum nisl eu lectus mollis, ac iaculis turpis viverra. Fusce at ex eu tortor accumsan aliquam eget et enim. Nullam at auctor diam, ut ultricies neque. Proin sit amet massa porta, eleifend leo sit amet, lobortis erat. Praesent justo justo, viverra id aliquam id, laoreet sed risus. Curabitur maximus molestie lorem.</p>
+
+                  <p>Suspendisse venenatis purus in sapien aliquam, vel placerat dui vestibulum. Ut elit felis, laoreet eu nunc at, tempus eleifend sapien. In molestie tincidunt rhoncus. Maecenas a lorem arcu. In consectetur urna quis neque pharetra, ac dictum sapien finibus. Phasellus dignissim iaculis lacus eu finibus. Etiam imperdiet lorem at tincidunt porta. Cras porta, felis ac ornare feugiat, justo felis pellentesque justo, quis gravida metus sapien ut nisi. Vivamus sagittis, velit eget aliquam pretium, libero ipsum pharetra leo, id tempor dolor erat ut dui. Nunc ut arcu fermentum nisl feugiat iaculis. Mauris porta eget neque vitae sollicitudin.</p>
+
+                  <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed aliquet eget libero in ornare. Etiam suscipit ac est vitae venenatis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut felis rutrum, bibendum quam a, sollicitudin elit. Integer vitae ultricies mauris. Duis porta augue ac eleifend rutrum. Donec quis dolor pellentesque, viverra orci a, pulvinar quam. Nulla vitae mattis erat. Vivamus feugiat placerat tellus volutpat ultricies. Nullam facilisis lectus et quam blandit, sed feugiat risus maximus. Pellentesque euismod scelerisque ante, a dictum quam lobortis id.</p>
+                </paper-material>
+                <paper-material elevation="2">
+                  <h2 class="paper-font-headline">Lorem Ipsum</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempor accumsan magna sed bibendum. Pellentesque ultricies erat at mauris iaculis convallis. Maecenas eleifend consectetur ex, ut malesuada sem porta ac. Pellentesque eu ultrices quam, a commodo nisi. Etiam maximus nisi scelerisque, sodales velit et, placerat felis. In faucibus elit tincidunt, dictum nulla eget, dictum ipsum. Donec viverra turpis rhoncus quam interdum facilisis. Aliquam placerat congue scelerisque. Nunc at augue vestibulum, rhoncus elit id, commodo lectus. Suspendisse lectus est, condimentum in malesuada eget, euismod vel magna. Donec placerat, magna convallis convallis luctus, erat nunc aliquam metus, vel finibus lectus elit non neque. Suspendisse mauris elit, pretium vitae suscipit eget, gravida venenatis nunc. Duis sapien risus, rhoncus a est a, malesuada tempor arcu. Cras eu metus iaculis, aliquam mauris nec, tincidunt arcu. Vivamus id nibh ornare, fermentum odio eu, scelerisque turpis. Aliquam erat volutpat.</p>
+
+                  <google-youtube class="full"
+                                  video-id="PmT-djHyo3E"
+                                  rel="0"
+                                  start="5"
+                                  autoplay="0"
+                                  fluid
+                                  chromeless>
+                  </google-youtube>
+
+                  <p>In et bibendum velit. Donec fermentum maximus ante vitae lacinia. Nunc tempus consectetur dui, ut porta augue volutpat eget. Donec eu suscipit erat. Suspendisse cursus ultrices tellus non tincidunt. Cras rutrum nisl eu lectus mollis, ac iaculis turpis viverra. Fusce at ex eu tortor accumsan aliquam eget et enim. Nullam at auctor diam, ut ultricies neque. Proin sit amet massa porta, eleifend leo sit amet, lobortis erat. Praesent justo justo, viverra id aliquam id, laoreet sed risus. Curabitur maximus molestie lorem.</p>
+
+                  <p>Suspendisse venenatis purus in sapien aliquam, vel placerat dui vestibulum. Ut elit felis, laoreet eu nunc at, tempus eleifend sapien. In molestie tincidunt rhoncus. Maecenas a lorem arcu. In consectetur urna quis neque pharetra, ac dictum sapien finibus. Phasellus dignissim iaculis lacus eu finibus. Etiam imperdiet lorem at tincidunt porta. Cras porta, felis ac ornare feugiat, justo felis pellentesque justo, quis gravida metus sapien ut nisi. Vivamus sagittis, velit eget aliquam pretium, libero ipsum pharetra leo, id tempor dolor erat ut dui. Nunc ut arcu fermentum nisl feugiat iaculis. Mauris porta eget neque vitae sollicitudin.</p>
+
+                  <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed aliquet eget libero in ornare. Etiam suscipit ac est vitae venenatis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut felis rutrum, bibendum quam a, sollicitudin elit. Integer vitae ultricies mauris. Duis porta augue ac eleifend rutrum. Donec quis dolor pellentesque, viverra orci a, pulvinar quam. Nulla vitae mattis erat. Vivamus feugiat placerat tellus volutpat ultricies. Nullam facilisis lectus et quam blandit, sed feugiat risus maximus. Pellentesque euismod scelerisque ante, a dictum quam lobortis id.</p>
+                </paper-material>
+              </div>
             </section>
 
-            <section data-route="user-info">
+            <!--<section data-route="user-info">
               <paper-material elevation="1">
                 <h2 class="page-title">User: {{params.name}}</h2>
                 <div>This is {{params.name}}'s section</div>
               </paper-material>
-            </section>
+            </section>-->
 
-            <section data-route="contact">
-              <paper-material elevation="1">
-                <h2 class="page-title">Contact</h2>
-                <p>This is the contact section</p>
-              </paper-material>
+            <section data-route="creditos">
+              <div id="section-content">
+                <paper-material elevation="2">
+                  <h2 class="paper-font-headline">Créditos</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempor accumsan magna sed bibendum. Pellentesque ultricies erat at mauris iaculis convallis. Maecenas eleifend consectetur ex, ut malesuada sem porta ac. Pellentesque eu ultrices quam, a commodo nisi. Etiam maximus nisi scelerisque, sodales velit et, placerat felis. In faucibus elit tincidunt, dictum nulla eget, dictum ipsum. Donec viverra turpis rhoncus quam interdum facilisis. Aliquam placerat congue scelerisque. Nunc at augue vestibulum, rhoncus elit id, commodo lectus. Suspendisse lectus est, condimentum in malesuada eget, euismod vel magna. Donec placerat, magna convallis convallis luctus, erat nunc aliquam metus, vel finibus lectus elit non neque. Suspendisse mauris elit, pretium vitae suscipit eget, gravida venenatis nunc. Duis sapien risus, rhoncus a est a, malesuada tempor arcu. Cras eu metus iaculis, aliquam mauris nec, tincidunt arcu. Vivamus id nibh ornare, fermentum odio eu, scelerisque turpis. Aliquam erat volutpat.</p>
+
+                  <p>In et bibendum velit. Donec fermentum maximus ante vitae lacinia. Nunc tempus consectetur dui, ut porta augue volutpat eget. Donec eu suscipit erat. Suspendisse cursus ultrices tellus non tincidunt. Cras rutrum nisl eu lectus mollis, ac iaculis turpis viverra. Fusce at ex eu tortor accumsan aliquam eget et enim. Nullam at auctor diam, ut ultricies neque. Proin sit amet massa porta, eleifend leo sit amet, lobortis erat. Praesent justo justo, viverra id aliquam id, laoreet sed risus. Curabitur maximus molestie lorem.</p>
+
+                  <p>Suspendisse venenatis purus in sapien aliquam, vel placerat dui vestibulum. Ut elit felis, laoreet eu nunc at, tempus eleifend sapien. In molestie tincidunt rhoncus. Maecenas a lorem arcu. In consectetur urna quis neque pharetra, ac dictum sapien finibus. Phasellus dignissim iaculis lacus eu finibus. Etiam imperdiet lorem at tincidunt porta. Cras porta, felis ac ornare feugiat, justo felis pellentesque justo, quis gravida metus sapien ut nisi. Vivamus sagittis, velit eget aliquam pretium, libero ipsum pharetra leo, id tempor dolor erat ut dui. Nunc ut arcu fermentum nisl feugiat iaculis. Mauris porta eget neque vitae sollicitudin.</p>
+
+                  <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed aliquet eget libero in ornare. Etiam suscipit ac est vitae venenatis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut felis rutrum, bibendum quam a, sollicitudin elit. Integer vitae ultricies mauris. Duis porta augue ac eleifend rutrum. Donec quis dolor pellentesque, viverra orci a, pulvinar quam. Nulla vitae mattis erat. Vivamus feugiat placerat tellus volutpat ultricies. Nullam facilisis lectus et quam blandit, sed feugiat risus maximus. Pellentesque euismod scelerisque ante, a dictum quam lobortis id.</p>
+                </paper-material>
+                <paper-material elevation="2">
+                  <h2 class="paper-font-headline">Lorem Ipsum</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempor accumsan magna sed bibendum. Pellentesque ultricies erat at mauris iaculis convallis. Maecenas eleifend consectetur ex, ut malesuada sem porta ac. Pellentesque eu ultrices quam, a commodo nisi. Etiam maximus nisi scelerisque, sodales velit et, placerat felis. In faucibus elit tincidunt, dictum nulla eget, dictum ipsum. Donec viverra turpis rhoncus quam interdum facilisis. Aliquam placerat congue scelerisque. Nunc at augue vestibulum, rhoncus elit id, commodo lectus. Suspendisse lectus est, condimentum in malesuada eget, euismod vel magna. Donec placerat, magna convallis convallis luctus, erat nunc aliquam metus, vel finibus lectus elit non neque. Suspendisse mauris elit, pretium vitae suscipit eget, gravida venenatis nunc. Duis sapien risus, rhoncus a est a, malesuada tempor arcu. Cras eu metus iaculis, aliquam mauris nec, tincidunt arcu. Vivamus id nibh ornare, fermentum odio eu, scelerisque turpis. Aliquam erat volutpat.</p>
+
+                  <p>In et bibendum velit. Donec fermentum maximus ante vitae lacinia. Nunc tempus consectetur dui, ut porta augue volutpat eget. Donec eu suscipit erat. Suspendisse cursus ultrices tellus non tincidunt. Cras rutrum nisl eu lectus mollis, ac iaculis turpis viverra. Fusce at ex eu tortor accumsan aliquam eget et enim. Nullam at auctor diam, ut ultricies neque. Proin sit amet massa porta, eleifend leo sit amet, lobortis erat. Praesent justo justo, viverra id aliquam id, laoreet sed risus. Curabitur maximus molestie lorem.</p>
+
+                  <p>Suspendisse venenatis purus in sapien aliquam, vel placerat dui vestibulum. Ut elit felis, laoreet eu nunc at, tempus eleifend sapien. In molestie tincidunt rhoncus. Maecenas a lorem arcu. In consectetur urna quis neque pharetra, ac dictum sapien finibus. Phasellus dignissim iaculis lacus eu finibus. Etiam imperdiet lorem at tincidunt porta. Cras porta, felis ac ornare feugiat, justo felis pellentesque justo, quis gravida metus sapien ut nisi. Vivamus sagittis, velit eget aliquam pretium, libero ipsum pharetra leo, id tempor dolor erat ut dui. Nunc ut arcu fermentum nisl feugiat iaculis. Mauris porta eget neque vitae sollicitudin.</p>
+
+                  <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed aliquet eget libero in ornare. Etiam suscipit ac est vitae venenatis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut felis rutrum, bibendum quam a, sollicitudin elit. Integer vitae ultricies mauris. Duis porta augue ac eleifend rutrum. Donec quis dolor pellentesque, viverra orci a, pulvinar quam. Nulla vitae mattis erat. Vivamus feugiat placerat tellus volutpat ultricies. Nullam facilisis lectus et quam blandit, sed feugiat risus maximus. Pellentesque euismod scelerisque ante, a dictum quam lobortis id.</p>
+                </paper-material>
+                <paper-material elevation="2">
+                  <h2 class="paper-font-headline">Lorem Ipsum</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempor accumsan magna sed bibendum. Pellentesque ultricies erat at mauris iaculis convallis. Maecenas eleifend consectetur ex, ut malesuada sem porta ac. Pellentesque eu ultrices quam, a commodo nisi. Etiam maximus nisi scelerisque, sodales velit et, placerat felis. In faucibus elit tincidunt, dictum nulla eget, dictum ipsum. Donec viverra turpis rhoncus quam interdum facilisis. Aliquam placerat congue scelerisque. Nunc at augue vestibulum, rhoncus elit id, commodo lectus. Suspendisse lectus est, condimentum in malesuada eget, euismod vel magna. Donec placerat, magna convallis convallis luctus, erat nunc aliquam metus, vel finibus lectus elit non neque. Suspendisse mauris elit, pretium vitae suscipit eget, gravida venenatis nunc. Duis sapien risus, rhoncus a est a, malesuada tempor arcu. Cras eu metus iaculis, aliquam mauris nec, tincidunt arcu. Vivamus id nibh ornare, fermentum odio eu, scelerisque turpis. Aliquam erat volutpat.</p>
+
+                  <p>In et bibendum velit. Donec fermentum maximus ante vitae lacinia. Nunc tempus consectetur dui, ut porta augue volutpat eget. Donec eu suscipit erat. Suspendisse cursus ultrices tellus non tincidunt. Cras rutrum nisl eu lectus mollis, ac iaculis turpis viverra. Fusce at ex eu tortor accumsan aliquam eget et enim. Nullam at auctor diam, ut ultricies neque. Proin sit amet massa porta, eleifend leo sit amet, lobortis erat. Praesent justo justo, viverra id aliquam id, laoreet sed risus. Curabitur maximus molestie lorem.</p>
+
+                  <p>Suspendisse venenatis purus in sapien aliquam, vel placerat dui vestibulum. Ut elit felis, laoreet eu nunc at, tempus eleifend sapien. In molestie tincidunt rhoncus. Maecenas a lorem arcu. In consectetur urna quis neque pharetra, ac dictum sapien finibus. Phasellus dignissim iaculis lacus eu finibus. Etiam imperdiet lorem at tincidunt porta. Cras porta, felis ac ornare feugiat, justo felis pellentesque justo, quis gravida metus sapien ut nisi. Vivamus sagittis, velit eget aliquam pretium, libero ipsum pharetra leo, id tempor dolor erat ut dui. Nunc ut arcu fermentum nisl feugiat iaculis. Mauris porta eget neque vitae sollicitudin.</p>
+
+                  <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed aliquet eget libero in ornare. Etiam suscipit ac est vitae venenatis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut felis rutrum, bibendum quam a, sollicitudin elit. Integer vitae ultricies mauris. Duis porta augue ac eleifend rutrum. Donec quis dolor pellentesque, viverra orci a, pulvinar quam. Nulla vitae mattis erat. Vivamus feugiat placerat tellus volutpat ultricies. Nullam facilisis lectus et quam blandit, sed feugiat risus maximus. Pellentesque euismod scelerisque ante, a dictum quam lobortis id.</p>
+                </paper-material>
+              </div>
             </section>
 
           </iron-pages>

@@ -22,8 +22,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   /* Application theme */
 
   :root {
-    --dark-primary-color: #000000;
-    --default-primary-color: #383838;
+    --dark-primary-color: #303F9F;
+    --default-primary-color: #3F51B5;
     --light-primary-color: #C5CAE9;
     --text-primary-color: #ffffff; /*text/icons*/
     --accent-color: #FF4081;
@@ -59,6 +59,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   paper-material {
     border-radius: 2px;
+    height: 100%;
     padding: 16px 0 16px 0;
     /*width: calc(98.66% - 16px);*/
     max-width: 1024px;
@@ -75,7 +76,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     color: var(--default-primary-color);
   }
 
-  paper-menu a, .top-nav {
+  paper-menu a {
     @apply(--layout-horizontal);
     @apply(--layout-center);
     text-decoration: none;
@@ -88,12 +89,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     line-height: 24px;
     min-height: 48px;
     padding: 0 16px;
-  }
-  a.top-nav {
-    color: #fff;
-  }
-  paper-button.top-nav {
-    display: inline-block !important;
   }
 
   paper-toolbar.tall .app-name {
@@ -152,10 +147,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       margin-left: 16px;
     }
 
-    paper-button.top-nav {
-      display: none !important;
-    }
-
   }
 
   /* Tablet+ */
@@ -164,8 +155,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     paper-material {
       width: calc(98% - 46px);
       max-width: 1024px;
-      margin-top: 16px;
-      margin-bottom: 5px;
+      margin-bottom: 32px;
       padding-left: 30px;
       padding-right: 30px;
     }
